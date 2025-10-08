@@ -100,7 +100,7 @@ export class VirtualScrollComponent<T> {
     });
   }
 
-  protected onScroll() {
+  protected onScroll(): void {
     const scroller = this.scrollerRef();
     if (scroller) {
       this.scrollTop.set(scroller.nativeElement.scrollTop);
@@ -109,7 +109,7 @@ export class VirtualScrollComponent<T> {
 
   protected trackByFn = (_: number, item: T) => (item as any).id ?? item;
 
-  protected onKeydown(event: KeyboardEvent) {
+  protected onKeydown(event: KeyboardEvent): void {
     if (['ArrowDown', 'ArrowUp'].includes(event.key)) {
       event.preventDefault();
       event.stopPropagation();
@@ -130,7 +130,7 @@ export class VirtualScrollComponent<T> {
     }
   }
 
-  private scrollToIndex(index: number) {
+  private scrollToIndex(index: number): void {
     const scroller = this.scrollerRef();
     if (!scroller) return;
 
