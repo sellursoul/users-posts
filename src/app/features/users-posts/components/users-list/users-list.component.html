@@ -1,0 +1,18 @@
+<mat-nav-list>
+  <virtual-scroll
+    [items]="users()"
+    [itemHeightEstimator]="estimateHeight"
+    (itemSelect)="selectUser($event.id)"
+  >
+    <ng-template let-user let-i="index">
+      <mat-list-item (click)="selectUser(user.id)" [class.selected]="selectedUsers().has(user.id)">
+        <div class="users-list__item">
+          <mat-icon matListIcon>
+            {{ selectedUsers().has(user.id) ? 'check_circle' : 'person' }}
+          </mat-icon>
+          <span>{{ user.name }}</span>
+        </div>
+      </mat-list-item>
+    </ng-template>
+  </virtual-scroll>
+</mat-nav-list>

@@ -1,0 +1,1 @@
+export * from './users-posts/users-posts.component'

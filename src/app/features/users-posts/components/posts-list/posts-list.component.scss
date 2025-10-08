@@ -1,0 +1,11 @@
+.posts-list {
+  padding: 0 16px;
+
+  &__header {
+    &__content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}

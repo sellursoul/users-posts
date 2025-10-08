@@ -1,0 +1,21 @@
+.layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  height: calc(100vh - 64px);
+  overflow: hidden;
+  margin-bottom: 16px;
+
+  &__left {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: block;
+  }
+
+  &__right {
+    height: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    display: block;
+  }
+}

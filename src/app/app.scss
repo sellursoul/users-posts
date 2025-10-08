@@ -1,0 +1,13 @@
+.router-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .router-container {
+    display: block;
+    height: 100%;
+  }
+}

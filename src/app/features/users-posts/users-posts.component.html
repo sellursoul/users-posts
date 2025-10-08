@@ -1,0 +1,9 @@
+<mat-toolbar color="primary">
+  <span>Users & Posts</span>
+</mat-toolbar>
+
+<div class="layout">
+  <users-list class="layout__left" [users]="users()" />
+
+  <posts-list class="layout__right" [posts]="posts()" (openPost)="openPostDialog($event)" />
+</div>

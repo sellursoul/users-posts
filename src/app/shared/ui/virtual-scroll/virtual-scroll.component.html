@@ -1,0 +1,23 @@
+<div class="virtual-scroll">
+  <div class="virtual-scroll__header">
+    <ng-content select="[slot=header]" />
+  </div>
+
+  <div #scroller class="virtual-scroll__container" (scroll)="onScroll()">
+    <div class="virtual-scroll__spacer" [style.height.px]="totalHeight()"></div>
+
+    @for (item of visibleItems(); track trackByFn($index, item); let idx = $index) {
+    <div
+      class="virtual-scroll__item-container"
+      [style.top.px]="itemOffsets()[idx]"
+      [attr.tabindex]="0"
+      (click)="focusedIndex.set(startIndex() + idx)"
+      [class.focused]="startIndex() + idx === focusedIndex()"
+    >
+      <ng-container
+        *ngTemplateOutlet="itemTemplate(); context: { $implicit: item, index: startIndex() + idx }"
+      />
+    </div>
+    }
+  </div>
+</div>

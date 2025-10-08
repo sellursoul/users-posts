@@ -1,0 +1,31 @@
+<section class="posts-list">
+  <virtual-scroll
+    [items]="posts()"
+    [itemHeightEstimator]="estimateHeight"
+    (itemSelect)="openPost.emit($event)"
+  >
+    <div slot="header" class="posts-list__header">
+      <div class="posts-list__header__content">
+        <h3>
+          Showing
+          {{ posts().length === 10000 ? posts().length : posts().length + ' of 10000' }}
+          posts
+        </h3>
+        <posts-sort />
+      </div>
+      <posts-search />
+    </div>
+
+    <ng-template let-post let-i="index">
+      @if(post){
+      <mat-card class="posts-list__item" appearance="outlined" (click)="openPost.emit(post)">
+        <mat-card-header>
+          <mat-card-title>{{ post?.title }}</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>{{ post?.description }}</mat-card-content>
+      </mat-card>
+      }
+    </ng-template>
+  </virtual-scroll>
+</section>
