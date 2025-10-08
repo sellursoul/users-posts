@@ -109,8 +109,12 @@ export class VirtualScrollComponent<T> {
 
   protected trackByFn = (_: number, item: T) => (item as any).id ?? item;
 
-  @HostListener('window:keydown', ['$event'])
   protected onKeydown(event: KeyboardEvent) {
+    if (['ArrowDown', 'ArrowUp'].includes(event.key)) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
     const idx = this.focusedIndex();
     if (idx == null) return;
 

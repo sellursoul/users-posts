@@ -16,6 +16,10 @@
     overflow-y: auto;
     height: 600px;
     will-change: scroll-position;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   &__spacer {
@@ -38,9 +42,7 @@
     cursor: pointer;
 
     &.focused {
-      outline: 2px solid var(--mat-primary);
       box-shadow: 0 0 8px rgba(63, 81, 181, 0.4);
-      transform: scale(1.02);
     }
 
     &:hover {
